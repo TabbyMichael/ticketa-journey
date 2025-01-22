@@ -1,5 +1,7 @@
 import { FeaturedEvent } from "@/components/FeaturedEvent";
 import { EventCard } from "@/components/EventCard";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const featuredEvent = {
@@ -37,23 +39,29 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen space-y-12 pb-12">
-      <FeaturedEvent {...featuredEvent} />
-      
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2">Upcoming Events</h2>
-          <p className="text-muted-foreground">Discover amazing events happening near you</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event, index) => (
-            <div key={index} className="page-transition" style={{ animationDelay: `${index * 100}ms` }}>
-              <EventCard {...event} />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1">
+        <div className="space-y-12 pb-12">
+          <FeaturedEvent {...featuredEvent} />
+          
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-2">Upcoming Events</h2>
+              <p className="text-muted-foreground">Discover amazing events happening near you</p>
             </div>
-          ))}
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {events.map((event, index) => (
+                <div key={index} className="page-transition" style={{ animationDelay: `${index * 100}ms` }}>
+                  <EventCard {...event} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };
