@@ -8,6 +8,11 @@ import Events from "./pages/Events";
 import Venues from "./pages/Venues";
 import Calendar from "./pages/Calendar";
 import FAQ from "./pages/FAQ";
+import Blog from "./pages/Blog";
+import HelpCenter from "./pages/HelpCenter";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Refunds from "./pages/Refunds";
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
             <Route path="/venues" element={<Venues />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/help" element={<HelpCenter />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/refunds" element={<Refunds />} />
           </Routes>
         </main>
         <Footer />
