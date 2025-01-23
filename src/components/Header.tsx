@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Search, Menu } from "lucide-react";
+import { SignInDialog } from "./auth/SignInDialog";
+import { SignUpDialog } from "./auth/SignUpDialog";
 
 const Header = () => {
   return (
@@ -12,7 +14,7 @@ const Header = () => {
               Ticketa
             </Link>
             <nav className="hidden md:flex items-center gap-6">
-              <Link to="/" className="text-sm font-medium hover:text-primary">
+              <Link to="/events" className="text-sm font-medium hover:text-primary">
                 Events
               </Link>
               <Link to="/venues" className="text-sm font-medium hover:text-primary">
@@ -33,12 +35,10 @@ const Header = () => {
                 className="pl-10 h-9 w-[200px] rounded-md border border-input bg-background px-3"
               />
             </div>
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              Sign In
-            </Button>
-            <Button size="sm" className="hidden md:flex">
-              Get Started
-            </Button>
+            <div className="hidden md:flex items-center gap-2">
+              <SignInDialog />
+              <SignUpDialog />
+            </div>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>

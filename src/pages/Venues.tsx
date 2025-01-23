@@ -5,6 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { MapPin, Search, Users } from "lucide-react";
 
+const venueImages = [
+  "photo-1487958449943-2429e8be8625",
+  "photo-1496307653780-42ee777d4833",
+  "photo-1439337153520-7082a56a81f4",
+  "photo-1473177104440-ffee2f376098",
+  "photo-1466442929976-97f336a657be",
+];
+
 const Venues = () => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -28,7 +36,7 @@ const Venues = () => {
               <Card key={index} className="overflow-hidden">
                 <div className="aspect-video relative">
                   <img
-                    src={`https://images.unsplash.com/photo-${1540575467063 + index}?auto=format&fit=crop&q=80`}
+                    src={`https://images.unsplash.com/${venueImages[index % venueImages.length]}?auto=format&fit=crop&q=80`}
                     alt={`Venue ${index + 1}`}
                     className="object-cover w-full h-full"
                   />
