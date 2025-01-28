@@ -16,7 +16,6 @@ const venueImages = [
 const Venues = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -48,19 +47,13 @@ const Venues = () => {
                       <MapPin className="w-4 h-4" />
                       <span>Location {index + 1}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4" />
-                      <span>Capacity: {1000 + index * 500}</span>
-                    </div>
                   </div>
-                  <Button className="w-full mt-4">View Details</Button>
                 </div>
               </Card>
             ))}
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

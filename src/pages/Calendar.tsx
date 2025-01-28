@@ -10,7 +10,6 @@ const Calendar = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="space-y-8">
           <div className="flex justify-between items-center">
@@ -51,7 +50,6 @@ const Calendar = () => {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
