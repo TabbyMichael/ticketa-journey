@@ -1,7 +1,5 @@
 import { FeaturedEvent } from "@/components/FeaturedEvent";
 import { EventCard } from "@/components/EventCard";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { useState } from "react";
 import {
   Pagination,
@@ -44,56 +42,50 @@ const Index = () => {
   const currentEvents = allEvents.slice(indexOfFirstEvent, indexOfLastEvent);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-1">
-        <div className="space-y-12 pb-12">
-          <FeaturedEvent {...featuredEvent} />
-          
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-2">Upcoming Events</h2>
-              <p className="text-muted-foreground">Discover amazing events happening near you</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {currentEvents.map((event, index) => (
-                <div key={index} className="page-transition" style={{ animationDelay: `${index * 100}ms` }}>
-                  <EventCard {...event} />
-                </div>
-              ))}
-            </div>
-
-            <Pagination className="my-8">
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious 
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
-                  />
-                </PaginationItem>
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <PaginationItem key={i}>
-                    <PaginationLink
-                      onClick={() => setCurrentPage(i + 1)}
-                      isActive={currentPage === i + 1}
-                    >
-                      {i + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
-                <PaginationItem>
-                  <PaginationNext 
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
+    <div className="space-y-12 pb-12">
+      <FeaturedEvent {...featuredEvent} />
+      
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2">Upcoming Events</h2>
+          <p className="text-muted-foreground">Discover amazing events happening near you</p>
         </div>
-      </main>
-      <Footer />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {currentEvents.map((event, index) => (
+            <div key={index} className="page-transition" style={{ animationDelay: `${index * 100}ms` }}>
+              <EventCard {...event} />
+            </div>
+          ))}
+        </div>
+
+        <Pagination className="my-8">
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious 
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+              />
+            </PaginationItem>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <PaginationItem key={i}>
+                <PaginationLink
+                  onClick={() => setCurrentPage(i + 1)}
+                  isActive={currentPage === i + 1}
+                >
+                  {i + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+            <PaginationItem>
+              <PaginationNext 
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      </div>
     </div>
   );
 };

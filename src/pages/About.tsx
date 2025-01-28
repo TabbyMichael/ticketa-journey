@@ -1,11 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Award, Globe, Users } from "lucide-react";
 
 const About = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <main className="flex-1 container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto space-y-12">
           <section className="text-center space-y-4">
@@ -42,7 +39,6 @@ const About = () => {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
